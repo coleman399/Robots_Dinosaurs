@@ -1,14 +1,12 @@
 import random
-
+import sys
 from herd import Herd
 from fleet import Fleet
 
 class Battlefield:
     def __init__(self):
-        self.import_fleet = Fleet()
-        self.import_herd = Herd()
-        self.fleet = []
-        self.herd = []
+        self.fleet = Fleet()
+        self.herd = Herd()
         self.dead_robots = []
         self.dead_dinosaurs = []
     
@@ -19,17 +17,16 @@ class Battlefield:
         self.robot_turn()
         self.dino_attack()
         self.robo_attack()
-        self.display_winners()
-
-# fleet.name? for every variable in the list? there isn't a better way?
-
+        if len(self.fleet.fleet_list) == 0:
+            self.display_winner()
+        elif len(self.herd.herd_list) == 0:
+            self.display_winner()
+        else:
+            self.run_game()
+    
     def battle(self):
-        for robots in self.import_fleet.fleet_list:
-            self.fleet.append(robots)
-            print(f"{robots} added to fleet.")
-        for dinos in self.import_herd.herd_list:
-            self.herd.append(dinos)
-            print(f"{dinos} added to herd.")
+        self.fighting_robot = random.choices(self.fleet.fleet_list)[0]
+        self.fighting_dino = random.choices(self.herd.herd_list)[0]
 
     def dino_turn(self):
         self.fighting_dino.dino_attack(self.fighting_robot)
@@ -43,24 +40,50 @@ class Battlefield:
         if self.fighting_robot.health > 0 and self.fighting_dino.health > 0:
             self.dino_turn()
         if self.fighting_robot.health <= 0:
-            self.fleet.remove(self.fighting_robot)
-            self.battle()
+            self.fleet.fleet_list.remove(self.fighting_robot)
+            print(f"{self.fighting_robot.name} has been defeated.")
+            if len(self.fleet.fleet_list) == 0:
+                self.display_winner()
+            elif len(self.herd.herd_list) == 0:
+                self.display_winner()
+            else:
+                self.battle()
         if self.fighting_dino.health <= 0:
-            self.herd.remove(self.fighting_dino)
-            self.battle()
+            self.herd.herd_list.remove(self.fighting_dino)
+            print(f"{self.fighting_dino.name} has been defeated.")
+            if len(self.fleet.fleet_list) == 0:
+                self.display_winner()
+            elif len(self.herd.herd_list) == 0:
+                self.display_winner()
+            else:
+                self.battle()
 
     def robo_attack(self):
         if self.fighting_robot.health > 0 and self.fighting_dino.health > 0:
             self.robot_turn()
         if self.fighting_robot.health <= 0:
-            self.fleet.remove(self.fighting_robot)
-            self.battle()
+            self.fleet.fleet_list.remove(self.fighting_robot)
+            print(f"{self.fighting_robot.name} has been defeated.")
+            if len(self.fleet.fleet_list) == 0:
+                self.display_winner()
+            elif len(self.herd.herd_list) == 0:
+                self.display_winner()
+            else:
+                self.battle()
         if self.fighting_dino.health <= 0:
-            self.remove(self.fighting_dino)
-            self.battle()
+            self.herd.herd_list.remove(self.fighting_dino)
+            print(f"{self.fighting_dino.name} has been defeated.")
+            if len(self.fleet.fleet_list) == 0:
+                self.display_winner()
+            elif len(self.herd.herd_list) == 0:
+                self.display_winner()
+            else:
+                self.battle()
 
     def display_winner(self):
-        if self.fleet == 0:
+        if len(self.fleet.fleet_list) == 0:
             print("The dinosaurs defeated the robots!")
-        if self == 0:
+            sys.exit()
+        if len(self.herd.herd_list) == 0:
             print("The robots defeated the dinosaurs!")
+            sys.exit()
