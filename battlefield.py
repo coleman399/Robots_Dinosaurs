@@ -1,35 +1,33 @@
 import random
-
 from herd import Herd
 from fleet import Fleet
 
 class Battlefield:
     def __init__(self):
-        self.import_fleet = Fleet()
-        self.import_herd = Herd()
-        self.fleet = []
-        self.herd = []
+        self.fleet = Fleet()
+        self.herd = Herd()
         self.dead_robots = []
         self.dead_dinosaurs = []
     
     def run_game(self):
         print("--- Begin Battle ---")
-        self.battle()
-        self.dino_turn()
-        self.robot_turn()
-        self.dino_attack()
-        self.robo_attack()
-        self.display_winners()
+        print(self.herd.herd_list[0].name)
+        # self.battle()
+        # self.dino_turn()
+        # self.robot_turn()
+        # self.dino_attack()
+        # self.robo_attack()
+        # self.display_winners()
 
 # fleet.name? for every variable in the list? there isn't a better way?
 
     def battle(self):
         for robots in self.import_fleet.fleet_list:
-            self.fleet.append(robots)
-            print(f"{robots} added to fleet.")
+            self.fleet.append(robots.name)
+            print(f"{robots.name} added to fleet.")
         for dinos in self.import_herd.herd_list:
-            self.herd.append(dinos)
-            print(f"{dinos} added to herd.")
+            self.herd.append(dinos.name)
+            print(f"{dinos.name} added to herd.")
 
     def dino_turn(self):
         self.fighting_dino.dino_attack(self.fighting_robot)
