@@ -7,8 +7,6 @@ class Battlefield:
     def __init__(self):
         self.fleet = Fleet()
         self.herd = Herd()
-        self.dead_robots = []
-        self.dead_dinosaurs = []
     
     def run_game(self):
         print("--- Begin Battle ---")
