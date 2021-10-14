@@ -30,11 +30,13 @@ class Battlefield:
 
     def dino_turn(self):
         self.fighting_dino.dino_attack(self.fighting_robot)
-        print(f"{self.fighting_dino.name} hits {self.fighting_robot.name} for {self.fighting_dino.attack_power} points.")
+        print(f"{self.fighting_dino.name} hits {self.fighting_robot.name} for {self.fighting_dino.attack_power} points while using {random.choice(self.fighting_dino.attack_names)}.") 
+        print(f"{self.fighting_dino.name} has {self.fighting_dino.energy_level} energy left.")
 
     def robot_turn(self):
         self.fighting_robot.robo_attack(self.fighting_dino)
-        print(f"{self.fighting_robot.name} hits {self.fighting_dino.name} for {self.fighting_robot.weapon.attack_power} points.")
+        print(f"{self.fighting_robot.name} hits {self.fighting_dino.name} for {self.fighting_robot.attack_power} points.")
+        print(f"{self.fighting_robot.name} has {self.fighting_robot.power_level} power left.")
 
     def dino_attack(self):
         if self.fighting_robot.health > 0 and self.fighting_dino.health > 0:
