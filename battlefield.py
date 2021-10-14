@@ -76,6 +76,6 @@ class Battlefield:
         if len(self.fleet.fleet_list) == 0:
             print("The dinosaurs defeated the robots!")
             sys.exit()
-        if len(self.herd.herd_list) == 0:
+        else:
             print("The robots defeated the dinosaurs!")
             sys.exit()
