@@ -1,8 +1,5 @@
 import random
-<<<<<<< HEAD
 import sys
-=======
->>>>>>> 405b29e4b4a504919d65ff39a272412ea2b309a9
 from herd import Herd
 from fleet import Fleet
 
@@ -15,7 +12,6 @@ class Battlefield:
     
     def run_game(self):
         print("--- Begin Battle ---")
-<<<<<<< HEAD
         self.battle()
         self.dino_turn()
         self.robot_turn()
@@ -31,25 +27,6 @@ class Battlefield:
     def battle(self):
         self.fighting_robot = random.choices(self.fleet.fleet_list)[0]
         self.fighting_dino = random.choices(self.herd.herd_list)[0]
-=======
-        print(self.herd.herd_list[0].name)
-        # self.battle()
-        # self.dino_turn()
-        # self.robot_turn()
-        # self.dino_attack()
-        # self.robo_attack()
-        # self.display_winners()
-
-# fleet.name? for every variable in the list? there isn't a better way?
-
-    def battle(self):
-        for robots in self.import_fleet.fleet_list:
-            self.fleet.append(robots.name)
-            print(f"{robots.name} added to fleet.")
-        for dinos in self.import_herd.herd_list:
-            self.herd.append(dinos.name)
-            print(f"{dinos.name} added to herd.")
->>>>>>> 405b29e4b4a504919d65ff39a272412ea2b309a9
 
     def dino_turn(self):
         self.fighting_dino.dino_attack(self.fighting_robot)

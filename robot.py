@@ -1,4 +1,3 @@
-from random import weibullvariate
 from weapon import Weapon
 
 class Robot:
