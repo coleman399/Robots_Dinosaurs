@@ -44,16 +44,12 @@ class Battlefield:
             print(f"{self.fighting_robot.name} has been defeated.")
             if len(self.fleet.fleet_list) == 0:
                 self.display_winner()
-            elif len(self.herd.herd_list) == 0:
-                self.display_winner()
             else:
                 self.battle()
         if self.fighting_dino.health <= 0:
             self.herd.herd_list.remove(self.fighting_dino)
             print(f"{self.fighting_dino.name} has been defeated.")
-            if len(self.fleet.fleet_list) == 0:
-                self.display_winner()
-            elif len(self.herd.herd_list) == 0:
+            if len(self.herd.herd_list) == 0:
                 self.display_winner()
             else:
                 self.battle()
@@ -66,16 +62,12 @@ class Battlefield:
             print(f"{self.fighting_robot.name} has been defeated.")
             if len(self.fleet.fleet_list) == 0:
                 self.display_winner()
-            elif len(self.herd.herd_list) == 0:
-                self.display_winner()
             else:
                 self.battle()
         if self.fighting_dino.health <= 0:
             self.herd.herd_list.remove(self.fighting_dino)
             print(f"{self.fighting_dino.name} has been defeated.")
-            if len(self.fleet.fleet_list) == 0:
-                self.display_winner()
-            elif len(self.herd.herd_list) == 0:
+            if len(self.herd.herd_list) == 0:
                 self.display_winner()
             else:
                 self.battle()
